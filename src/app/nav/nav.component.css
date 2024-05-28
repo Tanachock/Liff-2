@@ -1,0 +1,22 @@
+header{
+    text-align: center;
+    background-color: rgb(84, 84, 84);
+    color: white;
+}
+nav{
+    background-color: rgb(219, 219, 219);
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+input{
+    height: 40%;
+}
+select{
+    height: 40%;
+}
+button{
+    height: 40%;
+}
