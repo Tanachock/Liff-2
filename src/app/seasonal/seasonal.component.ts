@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Subscription } from 'rxjs';
+import { Route, Router } from '@angular/router';
 
 export interface DataSeasonAnime {
   title: string;
@@ -18,7 +19,7 @@ export interface DataSeasonAnime {
 })
 export class SeasonalComponent implements OnInit {
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private router: Router) { }
 
 
   year: string = ""
@@ -64,9 +65,13 @@ export class SeasonalComponent implements OnInit {
   searchSeason() {
     console.log("year ", this.year)
     console.log("Season ", this.season)
-    if(this.year!="" && this.season!=""){
+    if(this.year!="" && this.season!="" &&Number(this.year)>1000){
       this.selectSeasons();
     }
+  }
+
+  selectAnime(){
+    this.router.navigate(['/detail'])
   }
 }
 

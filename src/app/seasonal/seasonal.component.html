@@ -11,7 +11,7 @@
     </nav>
     <div class="container-anime">
         <div class="card-anime">
-            <div class="anime" *ngFor="let n of Animelistseason">
+            <div (click)="selectAnime()" class="anime" *ngFor="let n of Animelistseason">
                 <img class="img-p" src="{{n.image_url}}">
             </div>
         </div>

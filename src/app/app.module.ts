@@ -8,12 +8,14 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from  '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NavComponent } from './nav/nav.component';
 import { ErrorInterceptor } from './error.interceptor';
+import { AnimedetailComponent } from './animedetail/animedetail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SeasonalComponent,
-    NavComponent
+    NavComponent,
+    AnimedetailComponent
   ],
   imports: [
     BrowserModule,
