@@ -21,9 +21,6 @@ export class SeasonalComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
 
-  @Input() inputyear: string = "";
-  @Input() inputseason: string = "";
-
   year: string = ""
   season: string = ""
 
