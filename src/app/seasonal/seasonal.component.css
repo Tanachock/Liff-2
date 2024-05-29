@@ -4,12 +4,17 @@ header{
     color: white;
 }
 nav{
-    background-color: rgb(219, 219, 219);
+    background-color:#b5dff9;
     height: 60px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+.search-season{
+    display: flex;
     align-items: center;
     gap: 10px;
+    margin-right: 10px;
 }
 input{
     height: 30px;
@@ -22,29 +27,6 @@ select{
     border: 0;
     border-radius: 10px;
 }
-
-.card-anime{
-    margin: 10px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    cursor: pointer;
-}
-.anime{
-    width: 250px;
-    height: 300px;
-    background-color: rgb(255, 255, 255);
-    margin: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-.anime img{
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-.anime:hover{
-    transform: scale(1.15);
-    transition: 0.25s;
+.topic-anime{
+    margin-left: 10px;
 }

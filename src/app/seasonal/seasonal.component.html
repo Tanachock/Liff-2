@@ -1,19 +1,30 @@
 <div class="container">
-    <header>
+    <header
+        style="background-color: #48b0f1; height: 100%; display: flex; justify-content: center; align-items: center;">
         <h1>ANIME</h1>
     </header>
     <nav>
-        <input placeholder="Year" [(ngModel)]="year" value="year" (ngModelChange)="searchSeason()">
-        <select class="select-gen" [(ngModel)]="season" (ngModelChange)="searchSeason()">
-            <option *ngFor="let n of seasons" [value]="n">{{n}}</option>
-        </select>
-        <!-- <button (click)="searchSeason()">Search</button> -->
-    </nav>
-    <div class="container-anime">
-        <div class="card-anime">
-            <div (click)="selectAnime()" class="anime" *ngFor="let n of Animelistseason">
-                <img class="img-p" src="{{n.image_url}}">
-            </div>
+        <div class="topic-anime">
+            <a (click)="selectTopanime()" [(ngModel)]="clickTopanime">Top Anime</a>
         </div>
-    </div>
+        <div class="search-season">
+            <a>Season Now</a>
+            <input placeholder="Year" [(ngModel)]="year" value="year" (ngModelChange)="searchSeason()">
+            <select class="select-season" [(ngModel)]="season" (ngModelChange)="searchSeason()">
+                <option *ngFor="let n of seasons" [value]="n">{{n}}</option>
+            </select>
+        </div>
+    </nav>
 </div>
+
+<div *ngIf="clickTopanime">
+    
+</div> 
+
+<div *ngIf="clickTopanime; else animess">
+    <app-animedetail [animelist]="animelisttop"></app-animedetail>
+</div>
+
+<ng-template #animess>
+    <app-animedetail [animelist]="Animelistseason"></app-animedetail> 
+</ng-template>

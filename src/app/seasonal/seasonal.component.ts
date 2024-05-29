@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, Input,} from '@angular/core';
 import { ApiService } from '../api.service';
 import { Subscription } from 'rxjs';
 import { Route, Router } from '@angular/router';
@@ -24,6 +24,7 @@ export class SeasonalComponent implements OnInit {
 
   year: string = ""
   season: string = ""
+  clickTopanime: boolean = false
 
   seasons = ['winter', 'spring', 'summer', 'fall']
 
@@ -34,15 +35,25 @@ export class SeasonalComponent implements OnInit {
 
   // seasonDataAnime: any[] = [];
   animelist: any
+  animelisttop: any
 
   selectSeasons() {
-      this.apiService.selectSeason(this.year, this.season).subscribe((res:any) => {
-        console.log(res)
+      this.apiService.getSeason(this.year, this.season).subscribe((res:any) => {
+        // console.log(res)
         this.animelist = res.data
         console.log(this.animelist)
         this.convertData(this.animelist)
       });
   }
+
+  getTopanime(){
+    this.apiService.getTopanime().subscribe((res:any)=>{
+      this.animelisttop = res.data;
+      console.log(res.data)
+      this.convertData(this.animelisttop)
+    })
+  }
+
   Animelistseason: DataSeasonAnime[] = []
   convertData(data: any) {
     let _data = [];
@@ -70,8 +81,10 @@ export class SeasonalComponent implements OnInit {
     }
   }
 
-  selectAnime(){
-    this.router.navigate(['/detail'])
+  selectTopanime(){
+    this.getTopanime()
+    this.clickTopanime
   }
+
 }
 
